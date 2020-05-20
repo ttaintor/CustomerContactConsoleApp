@@ -55,7 +55,14 @@ namespace CustomerContactConsoleApp
          else
          {
             // TODO: talk with team about what should be logged. I included the HTTP response the the OpenWeatherMapResponse class in case we wanted to save anything from that for debugging purposes.
-            _logger.LogError(response.Excp, "Something really bad happened!");
+            if (response.Excp != null)
+            {
+               _logger.LogError(response.Excp, "Something really bad happened!");
+            }
+            else
+            {
+               _logger.LogInformation($"Probably used a city name that OpenWeatherMap doesn't know about. HTTP response code: {response.HttpResponseMessage.StatusCode.ToString()} : {response.HttpResponseMessage.ReasonPhrase}");
+            }
          }
 
          return contactMethods;

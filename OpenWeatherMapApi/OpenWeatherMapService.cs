@@ -22,8 +22,8 @@ namespace OpenWeatherMapApi
             if (responseMessage.IsSuccessStatusCode)
             {
                openWeatherMapResponse.OpenWeatherMapData = await responseMessage.Content.ReadAsAsync<OpenWeatherMapData>();
-               openWeatherMapResponse.HttpResponseMessage = responseMessage;
             }
+            openWeatherMapResponse.HttpResponseMessage = responseMessage;
          }
          catch (Exception excp)
          {
