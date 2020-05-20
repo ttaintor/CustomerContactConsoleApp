@@ -7,6 +7,6 @@ namespace CustomerContactConsoleApp
 {
    interface IContactMethodServiceProvider
    {
-      Task<IEnumerable<ContactMethod>> GetContactMethods(string location);
+      Task<IEnumerable<ContactMethod>> GetContactMethodsForCity(string location);
    }
 }

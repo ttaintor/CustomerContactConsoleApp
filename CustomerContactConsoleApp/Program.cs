@@ -41,7 +41,7 @@ namespace CustomerContactConsoleApp
       {
          IEnumerable<ContactMethod> contactMethods;
          IContactMethodServiceProvider contactMethodserviceProvider = serviceProvider.GetService<IContactMethodServiceProvider>();
-         contactMethods = await contactMethodserviceProvider.GetContactMethods("q=minneapolis,us");
+         contactMethods = await contactMethodserviceProvider.GetContactMethodsForCity("Minneapolis");
 
          if (contactMethods != null)
          {

@@ -30,11 +30,11 @@ namespace CustomerContactConsoleApp
       /// that some yo-yo can put in the code for sand storm and have it mean "rain" but you
       /// can't have everything in life. And this is just an example...
       /// </summary>
-      /// <param name="location">The location for which we are returning contact methods. Example 1: "q=minneapolis,us". Example 2: "zip=55401".</param>
+      /// <param name="location">The name of the city for which we are returning contact methods. Example: "Minneapolis".</param>
       /// <returns></returns>
-      public async Task<IEnumerable<ContactMethod>> GetContactMethods(string location)
+      public async Task<IEnumerable<ContactMethod>> GetContactMethodsForCity(string location)
       {
-         var url = $"{_apiConfig.BaseForecastUrl}{location}&units=imperial&APPID={_apiConfig.AppId}";
+         var url = $"{_apiConfig.BaseForecastUrl}q={location.ToLower()},us&units=imperial&APPID={_apiConfig.AppId}";
 
          // TODO: talk to architect about what should be logged, if anything. I have found it helpful for debugging to log things at various points of during a process.
          _logger.LogInformation($"About to get data from \"{url}\"");
